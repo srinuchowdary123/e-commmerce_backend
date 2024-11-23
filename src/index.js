@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const connectToDatabase = require("./db");
+const connectDB = require("./database");
 const bodyParser = require("body-parser");
 
 const productRoutes = require("./routes/productRoutes");
@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 
 
-connectToDatabase();
+connectDB();
 // Routes
 app.use("/products", productRoutes);
 

@@ -1,10 +1,15 @@
 const mongoose = require("mongoose");
 
-const uri = "mongodb://localhost:27017/myDatabase"; // Replace with your database name
 
-const connectdB = () => mongoose
-    .connect(uri)
-    .then(() => console.log("Connected to MongoDB"))
-    .catch((error) => console.error("Error connecting to MongoDB:", error)) ;
 
-module.exports = connectdB;
+const connectDB = async ()=>{
+    try{
+        await mongoose.connect(`mongodb+srv://sriramojiabhiram:doMQzs4pnILjrIle@cluster0.72y26.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/ECommerce`);
+        console.log('MongoDB Connected');
+    }catch(err){
+        console.log(err);
+        process.exit(1);
+    }
+}
+
+module.exports = connectDB;
