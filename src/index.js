@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const connectDB = require("./database");
+const connectToDatabase = require("./db");
 const bodyParser = require("body-parser");
 
 const productRoutes = require("./routes/productRoutes");
@@ -8,9 +8,8 @@ const productRoutes = require("./routes/productRoutes");
 const app = express();
 app.use(bodyParser.json());
 
-// Connect to AWS DocumentDB
 
-connectDB();
+connectToDatabase();
 // Routes
 app.use("/products", productRoutes);
 
